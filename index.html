@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 4th Anniversary | 18.02.2026</title>
+    <title>Asri & Ridho | 4th Anniversary</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Grotesk:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     
@@ -54,10 +54,8 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.8);
         }
 
-        /* Sembunyikan konten celebration secara default */
         #celebration-content { display: none; opacity: 0; }
         
-        /* Tombol Start Overlay */
         #start-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #000; z-index: 9999;
@@ -82,14 +80,15 @@
 
     <div id="start-overlay">
         <div class="animate-pulse text-center px-4">
-            <p class="text-gold font-serif text-2xl mb-2">IV YEARS ANNIVERSARY</p>
-            <p class="text-gray-400 text-sm font-mono tracking-widest">[ TAP ANYWHERE TO OPEN ]</p>
+            <p class="text-gold font-serif text-2xl mb-2">ASRI & RIDHO</p>
+            <p class="text-white text-sm mb-4">IV YEARS ANNIVERSARY</p>
+            <p class="text-gray-400 text-xs font-mono tracking-widest border border-gray-600 px-4 py-2 rounded-full">[ TAP ANYWHERE TO OPEN ]</p>
         </div>
     </div>
 
     <div id="canvas-container"></div>
 
-    <section id="countdown-section" class="min-h-screen flex flex-col items-center justify-center px-4 text-center relative z-10 transition-opacity duration-1000">
+    <section id="countdown-section" class="min-h-screen flex flex-col items-center justify-center px-4 text-center relative z-10">
         <div class="mb-12 space-y-4">
             <p class="text-gold tracking-[0.5em] text-xs md:text-sm uppercase font-mono">The Countdown Begins</p>
             <h1 class="text-5xl md:text-8xl font-serif font-bold text-white leading-tight">
@@ -108,14 +107,18 @@
 
     <section id="celebration-content" class="relative z-20 pb-20">
         
-        <div class="min-h-screen flex flex-col justify-center items-center text-center px-4">
-            <p class="font-script text-4xl md:text-6xl text-gold mb-4 animate-float">Happy Anniversary</p>
-            <h1 class="text-6xl md:text-9xl font-serif font-bold text-white mb-6">4 TAHUN</h1>
+        <div class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-10">
+            <p class="font-script text-3xl md:text-5xl text-gold mb-2 animate-float">Happy Anniversary</p>
+            
+            <h1 class="text-5xl md:text-8xl font-serif font-bold text-white mb-2 leading-tight">
+                ASRI <span class="text-gold">&</span> RIDHO
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-mono tracking-widest mb-8">4 TAHUN BERSAMA</p>
+
             <p class="max-w-xl text-gray-300 font-mono text-sm md:text-base leading-relaxed glass-panel p-6 rounded-xl">
                 "Waktu berlalu, tapi perasaanku tetap sama. Terima kasih telah menjadi bagian terbaik dari setiap hariku selama 1.461 hari ini. I Love You."
             </p>
             <div class="mt-10 animate-bounce">
-                <p class="text-xs text-gold tracking-widest">SCROLL DOWN FOR MEMORIES</p>
                 <svg class="w-6 h-6 mx-auto mt-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"></path></svg>
             </div>
         </div>
@@ -125,7 +128,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
                 <div class="photo-card glass-panel p-2 rounded-xl">
-                    <img src="Fotogaleri.webph" class="w-full h-80 object-cover rounded-lg filter sepia-[0.3]" alt="Kenangan 1">
+                    <img src="Fotogaleri.jpg" class="w-full h-80 object-cover rounded-lg filter sepia-[0.3]" alt="Kenangan 1">
                     <p class="text-center font-script text-xl mt-4 text-gold">Awal Cerita</p>
                 </div>
 
@@ -158,41 +161,35 @@
                 <h3 class="font-serif text-2xl text-gold mb-6">Make a Wish</h3>
                 <form id="wishForm" class="space-y-4">
                     <input type="text" id="wishName" placeholder="Nama Kamu" class="w-full bg-black/50 border border-gold/30 rounded p-3 text-white focus:outline-none focus:border-gold" required>
-                    <textarea id="wishMessage" placeholder="Harapan untuk tahun depan..." class="w-full bg-black/50 border border-gold/30 rounded p-3 text-white focus:outline-none focus:border-gold h-32" required></textarea>
+                    <textarea id="wishMessage" placeholder="Harapan untuk Asri & Ridho..." class="w-full bg-black/50 border border-gold/30 rounded p-3 text-white focus:outline-none focus:border-gold h-32" required></textarea>
                     <button type="submit" class="w-full bg-gold text-black font-bold py-3 rounded hover:bg-yellow-500 transition">KIRIM HARAPAN</button>
                 </form>
                 <div id="wishesContainer" class="mt-8 text-left space-y-4 max-h-60 overflow-y-auto"></div>
             </div>
         </div>
+
+        <footer class="relative z-20 text-center py-8 text-gray-600 text-xs font-mono border-t border-gray-900">
+            <p class="mb-1">Created with <span class="text-red-600">❤</span> for Asri & Ridho</p>
+            <p class="text-gold/50">Made by <span class="font-bold text-gold">SukaCoding - AllRIGHT RESERVED</span></p>
+        </footer>
+
     </section>
 
-<script>
-        // --- 1. SETUP TANGGAL & AUDIO ---
+    <script>
         const targetDate = new Date('2026-02-18T00:00:00').getTime(); 
         const music = document.getElementById('bg-music');
         let isUnlocked = false;
 
-        // --- 2. INTERAKSI AWAL (KLIK TAP ANYWHERE) ---
         const overlay = document.getElementById('start-overlay');
         
         overlay.addEventListener('click', function() {
-            // Hilangkan overlay
-            overlay.style.transition = "opacity 0.5s";
+            overlay.style.transition = "opacity 0.8s ease";
             overlay.style.opacity = '0';
+            setTimeout(() => { overlay.style.display = 'none'; }, 800);
             
-            setTimeout(() => { 
-                overlay.style.display = 'none'; 
-            }, 500);
-            
-            // Mainkan Musik
-            music.play().then(() => {
-                // Musik jalan
-            }).catch(e => {
-                console.log("Audio perlu interaksi user lagi atau error: ", e);
-            });
+            music.play().catch(e => console.log("Audio play failed:", e));
         });
 
-        // --- 3. COUNTDOWN LOGIC ---
         const timer = setInterval(() => {
             const now = new Date().getTime();
             const distance = targetDate - now;
@@ -206,14 +203,14 @@
                 const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-                document.getElementById('days').innerText = d < 10 ? '0'+d : d;
-                document.getElementById('hours').innerText = h < 10 ? '0'+h : h;
-                document.getElementById('minutes').innerText = m < 10 ? '0'+m : m;
-                document.getElementById('seconds').innerText = s < 10 ? '0'+s : s;
+                const setVal = (id, val) => {
+                    const el = document.getElementById(id);
+                    if(el) el.innerText = val < 10 ? '0'+val : val;
+                };
+                setVal('days', d); setVal('hours', h); setVal('minutes', m); setVal('seconds', s);
             }
         }, 1000);
 
-        // --- 4. FUNGSI UNLOCK CELEBRATION ---
         function unlockCelebration() {
             if(isUnlocked) return;
             isUnlocked = true;
@@ -221,12 +218,10 @@
             const cdSection = document.getElementById('countdown-section');
             const celebSection = document.getElementById('celebration-content');
 
-            // Gunakan GSAP jika terload, jika tidak pakai vanilla JS
             if (typeof gsap !== 'undefined') {
                 gsap.to(cdSection, { opacity: 0, duration: 1, onComplete: () => {
                     cdSection.style.display = 'none';
                     celebSection.style.display = 'block';
-                    celebSection.style.opacity = '0';
                     gsap.to(celebSection, { opacity: 1, duration: 2 });
                     triggerConfetti();
                 }});
@@ -238,15 +233,11 @@
             }
         }
 
-        // --- 5. EFEK CONFETTI ---
         function triggerConfetti() {
-            // Cek jika library confetti terload
             if (typeof confetti === 'undefined') return;
-
             var duration = 5 * 1000;
             var animationEnd = Date.now() + duration;
             var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
             var interval = setInterval(function() {
                 var timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) { return clearInterval(interval); }
@@ -256,7 +247,6 @@
             }, 250);
         }
 
-        // --- 6. THREE.JS BACKGROUND ---
         if (typeof THREE !== 'undefined') {
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -274,7 +264,6 @@
             const mesh = new THREE.Points(geometry, material);
             scene.add(mesh);
             camera.position.z = 5;
-
             function animate3D() {
                 requestAnimationFrame(animate3D);
                 mesh.rotation.y += 0.001;
@@ -303,26 +292,23 @@
         const db = getFirestore(app);
         const wishesCol = collection(db, "wishes-final");
         
-        // Logic Form Wish
         const wishForm = document.getElementById('wishForm');
         if (wishForm) {
             wishForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const name = document.getElementById('wishName').value;
                 const msg = document.getElementById('wishMessage').value;
-                
                 try {
                     await addDoc(wishesCol, { name, message: msg, timestamp: serverTimestamp() });
                     wishForm.reset();
-                    alert("Harapan terkirim! Terima kasih.");
+                    alert("Harapan terkirim untuk Asri & Ridho!");
                 } catch (err) {
                     console.error("Error sending wish: ", err);
-                    alert("Gagal mengirim harapan. Cek koneksi internet.");
+                    alert("Gagal mengirim harapan.");
                 }
             });
         }
 
-        // Logic Load Wishes
         const wishesContainer = document.getElementById('wishesContainer');
         if (wishesContainer) {
             onSnapshot(query(wishesCol, orderBy("timestamp", "desc")), (snap) => {
