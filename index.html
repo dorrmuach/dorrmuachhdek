@@ -41,7 +41,36 @@
     </script>
 
     <style>
-        body { margin: 0; overflow-x: hidden; background-color: #000; color: white; }
+        /* --- PROTEKSI ANTI COPY PASTE (CSS) --- */
+        body { 
+            margin: 0; 
+            overflow-x: hidden; 
+            background-color: #000; 
+            color: white;
+            
+            /* Mencegah seleksi teks */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+
+        /* Mencegah gambar di-drag/disave */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none; /* Gambar tidak bisa di-klik kanan save as */
+        }
+
+        /* PENTING: Mengembalikan fungsi seleksi pada input form agar user bisa ngetik */
+        input, textarea {
+            -webkit-user-select: text !important;
+            -ms-user-select: text !important;
+            user-select: text !important;
+        }
+        /* ------------------------------------- */
         
         #canvas-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
@@ -72,9 +101,7 @@
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <audio id="bg-music" loop>
+<body class="antialiased" oncontextmenu="return false;"> <audio id="bg-music" loop>
         <source src="lagu.mp3" type="audio/mpeg">
     </audio>
 
@@ -170,12 +197,50 @@
 
         <footer class="relative z-20 text-center py-8 text-gray-600 text-xs font-mono border-t border-gray-900">
             <p class="mb-1">Created with <span class="text-red-600">❤</span> for Asri & Ridho</p>
-            <p class="text-gold/50">Made by <span class="font-bold text-gold">SukaCoding & Ridho- All RIGHT RESERVED</span></p>
+            <p class="text-gold/50">Made by <span class="font-bold text-gold">SukaCoding & Ridho - All RIGHT RESERVED</span></p>
         </footer>
 
     </section>
 
     <script>
+        // --- SCRIPT PROTEKSI ANTI KLIK KANAN & SHORTCUT ---
+        
+        // Mencegah Klik Kanan
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Mencegah Shortcut Keyboard (Inspect, Copy, Paste, dll)
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) { // F12
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { // Ctrl+Shift+I
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { // Ctrl+Shift+C
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { // Ctrl+Shift+J
+                return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U (View Source)
+                return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) { // Ctrl+S (Save)
+                return false;
+            }
+            // Opsional: Blokir Ctrl+C (Copy) dan Ctrl+V (Paste) kecuali di input
+            if ((e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'V'.charCodeAt(0))) {
+                 // Cek apakah user sedang di kolom input/textarea, jika ya boleh copy paste
+                 if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA') {
+                     return true;
+                 }
+                 return false;
+            }
+        }
+        // --------------------------------------------------
+
         const targetDate = new Date('2026-02-18T00:00:00').getTime(); 
         const music = document.getElementById('bg-music');
         let isUnlocked = false;
@@ -323,4 +388,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
